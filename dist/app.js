@@ -15,7 +15,13 @@ var passport_2 = __importDefault(require("./middleware/passport"));
 var cookie_parser_1 = __importDefault(require("cookie-parser"));
 var cors_1 = __importDefault(require("cors"));
 var app = (0, express_1.default)();
-app.use((0, cors_1.default)({ origin: "*", credentials: true }));
+var allowedOrigin = process.env.FRONTEND_URL;
+app.use((0, cors_1.default)({
+    origin: allowedOrigin,
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+}));
 app.use(express_1.default.json());
 app.use((0, cookie_parser_1.default)());
 app.use(passport_1.default.initialize());

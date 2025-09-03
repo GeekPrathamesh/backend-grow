@@ -10,7 +10,16 @@ import kPassport from "./middleware/passport";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 const app = express();
-app.use(cors({ origin: "*", credentials: true }));
+const allowedOrigin = process.env.FRONTEND_URL; 
+app.use(
+  cors({
+    origin: allowedOrigin,
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
+
 
 app.use(express.json());
 app.use(cookieParser());
