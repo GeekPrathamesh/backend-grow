@@ -257,7 +257,7 @@ var sendForgotPasswordMail = function (req, res, next) { return __awaiter(void 0
                     expiresIn: "60m",
                 });
                 return [4 /*yield*/, exports.transporter.sendMail({
-                        from: '"Fred Foo 👻" <anshuraj@dosomecoding.com>',
+                        from: '"Prathamesh" <prathameshteli737@gmail.com>',
                         to: "".concat(email),
                         subject: "For Forgot Password Verification Mail",
                         // text: "Hello world?", // plain text body
